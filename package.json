@@ -107,7 +107,8 @@
     "electron-updater": "^6.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "uuid": "^11.0.2"
   },
   "devDependencies": {
     "@electron/rebuild": "^3.3.0",
@@ -241,10 +242,6 @@
   },
   "collective": {
     "url": "https://opencollective.com/electron-react-boilerplate-594"
-  },
-  "devEngines": {
-    "node": ">=14.x",
-    "npm": ">=7.x"
   },
   "electronmon": {
     "patterns": [

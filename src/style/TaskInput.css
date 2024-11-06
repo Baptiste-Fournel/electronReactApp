@@ -1,0 +1,30 @@
+/* TaskInput.css */
+.task-input {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+  
+  .task-input input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .task-input button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .task-input button:hover {
+    background-color: #218838;
+  }
+  
