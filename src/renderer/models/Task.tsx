@@ -1,6 +1,4 @@
-import { TaskStatus } from '../../constants/tasksEnum';
-import { TaskType } from '../../constants/taskType';
-import { SubTask } from '../models/SubTask';
+import { TaskStatus, TaskType } from '../../constants/tasksEnum';
 
 
 export interface Task {
@@ -10,5 +8,11 @@ export interface Task {
     subTasks?: SubTask[]; 
     type?: TaskType;
     authorId?: string;
+  }
+
+  export interface SubTask {
+    id: string;
+    name: string;
+    status: TaskStatus;
   }
   

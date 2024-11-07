@@ -2,16 +2,27 @@ import React from 'react';
 import { Task } from '../../models/Task';
 import TaskItem from './TaskItem';
 import '../../../style/TaskColumn.css';
-
+import { TaskStatus } from '../../../constants/tasksEnum';
 
 interface TaskColumnProps {
   title: string;
   tasks: Task[];
   onAdvance?: (id: string) => void;
   onDelete?: (id: string) => void;
+  addSubTask?: (taskId: string, subTaskName: string) => void;
+  updateSubTaskStatus?: (taskId: string, subTaskId: string, newStatus: TaskStatus) => void;
+  removeSubTask?: (taskId: string, subTaskId: string) => void;
 }
 
-function TaskColumn({ title, tasks, onAdvance, onDelete }: TaskColumnProps) {
+function TaskColumn({
+  title,
+  tasks,
+  onAdvance,
+  onDelete,
+  addSubTask,
+  updateSubTaskStatus,
+  removeSubTask,
+}: TaskColumnProps) {
   return (
     <div className="task-column">
       <h2>{title}</h2>
@@ -19,8 +30,18 @@ function TaskColumn({ title, tasks, onAdvance, onDelete }: TaskColumnProps) {
         <TaskItem
           key={task.id}
           task={task}
-          onAdvance={onAdvance ? () => onAdvance(task.id) : () => {}}
-          onDelete={onDelete ? () => onDelete(task.id) : () => {}}
+          onAdvance={onAdvance ? () => onAdvance(task.id) : undefined}
+          onDelete={onDelete ? () => onDelete(task.id) : undefined}
+          addSubTask={addSubTask ? (subTaskName) => addSubTask(task.id, subTaskName) : undefined}
+          updateSubTaskStatus={
+            updateSubTaskStatus
+              ? (subTaskId, newStatus) =>
+                  updateSubTaskStatus(task.id, subTaskId, newStatus as TaskStatus)
+              : undefined
+          }
+          removeSubTask={
+            removeSubTask ? (subTaskId) => removeSubTask(task.id, subTaskId) : undefined
+          }
         />
       ))}
     </div>

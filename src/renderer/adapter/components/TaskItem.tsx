@@ -5,24 +5,29 @@ import '../../../style/TaskItem.css';
 
 interface TaskItemProps {
   task: Task;
-  onAdvance: () => void;
-  onDelete: () => void;
+  onAdvance?: () => void;
+  onDelete?: () => void;
+  addSubTask?: (subTaskName: string) => void;
+  updateSubTaskStatus?: (subTaskId: string, newStatus: string) => void;
+  removeSubTask?: (subTaskId: string) => void;
 }
 
-function TaskItem({ task, onAdvance, onDelete }: TaskItemProps) {
+function TaskItem({
+  task,
+  onAdvance,
+  onDelete,
+  addSubTask,
+  updateSubTaskStatus,
+  removeSubTask,
+}: TaskItemProps) {
   return (
     <div className="task-item">
       <span>{task.name}</span>
-      
-      {(task.status === TaskStatus.NotStarted || task.status === TaskStatus.InProgress) && (
-        <button onClick={onAdvance} className="advance-button">➕</button>
-      )}
-      
-      {task.status === TaskStatus.Completed && (
-        <button onClick={onDelete} className="delete-button">❌</button>
-      )}
+      {onAdvance && <button onClick={onAdvance}>➕</button>}
+      {onDelete && <button onClick={onDelete}>❌</button>}  
     </div>
   );
 }
 
 export default TaskItem;
+
