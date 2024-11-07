@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 import '../../../style/TaskInput.css';
 import { TaskType } from '../../../constants/tasksEnum';
+import { taskTypeTranslations } from '../../../constants/tasksTranslations';
 
 interface TaskInputProps {
-  addTask: (taskName: string, type: TaskType, authorId: string) => void;
+  addTask: (taskName: string, type: TaskType, authorName: string) => void;
 }
 
 function TaskInput({ addTask }: TaskInputProps) {
   const [taskName, setTaskName] = useState('');
   const [type, setType] = useState<TaskType>(TaskType.Personal);
-  const [authorId, setAuthorId] = useState(''); 
+  const [authorName, setAuthorName] = useState('');
+  const [error, setError] = useState(false);
 
   function handleAddTask() {
-    if (taskName.trim() !== '' && authorId.trim() !== '') {
-      addTask(taskName.trim(), type, authorId.trim());
+    if (taskName.trim() && authorName.trim()) {
+      addTask(taskName.trim(), type, authorName.trim());
       setTaskName('');
-      setAuthorId('');
+      setAuthorName('');
+      setError(false);
     } else {
-      alert("Veuillez entrer un nom de tâche et un ID d'auteur valides.");
+      setError(true);
     }
   }
 
@@ -35,21 +38,30 @@ function TaskInput({ addTask }: TaskInputProps) {
         onChange={(event) => setTaskName(event.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="Nom de la tâche"
+        className="task-input-field"
       />
-      <select value={type} onChange={(event) => setType(event.target.value as TaskType)}>
-        <option value={TaskType.Personal}>Personnel</option>
-        <option value={TaskType.Work}>Travail</option>
-        <option value={TaskType.Family}>Famille</option>
+      <select
+        value={type}
+        onChange={(event) => setType(event.target.value as TaskType)}
+        className="task-select"
+      >
+        <option value={TaskType.Personal}>{taskTypeTranslations[TaskType.Personal]}</option>
+        <option value={TaskType.Work}>{taskTypeTranslations[TaskType.Work]}</option>
+        <option value={TaskType.Family}>{taskTypeTranslations[TaskType.Family]}</option>
       </select>
       <input
         type="text"
-        value={authorId}
-        onChange={(event) => setAuthorId(event.target.value)}
-        placeholder="ID de l'auteur"
+        value={authorName}
+        onChange={(event) => setAuthorName(event.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder="Nom de l'auteur"
+        className="task-input-field"
       />
-      <button onClick={handleAddTask}>Ajouter +</button>
+      <button onClick={handleAddTask} className="add-task-button">Ajouter +</button>
+      {error && <p className="error-message">Veuillez remplir tous les champs.</p>}
     </div>
   );
 }
 
 export default TaskInput;
+

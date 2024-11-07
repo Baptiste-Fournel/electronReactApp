@@ -1,13 +1,11 @@
 export enum TaskStatus {
-    NotStarted = 'not-started',
-    InProgress = 'in-progress',
-    Completed = 'completed',
+    NotStarted = 'non-commencée',
+    InProgress = 'en-cours',
+    Completed = 'terminée',
   }
-
-export enum TaskType {
-    Personal = 'personal',
-    Work = 'work',
-    Family = 'family',
-}
   
-  
+  export enum TaskType {
+    Personal = 'Personnel',
+    Work = 'Travail',
+    Family = 'Famille',
+  }

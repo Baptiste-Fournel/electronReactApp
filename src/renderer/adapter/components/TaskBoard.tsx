@@ -32,7 +32,6 @@ function TaskBoard({
         updateSubTaskStatus={updateSubTaskStatus}
         removeSubTask={removeSubTask}
       />
-      
       <TaskColumn
         title="En cours"
         tasks={tasks.filter(task => task.status === TaskStatus.InProgress)}
@@ -42,7 +41,6 @@ function TaskBoard({
         updateSubTaskStatus={updateSubTaskStatus}
         removeSubTask={removeSubTask}
       />
-      
       <TaskColumn
         title="Terminées"
         tasks={tasks.filter(task => task.status === TaskStatus.Completed)}

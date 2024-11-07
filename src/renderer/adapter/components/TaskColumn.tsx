@@ -24,7 +24,7 @@ const TaskColumn: React.FC<TaskColumnProps> = memo(({
   removeSubTask 
 }) => {
   return (
-    <div className={`task-column ${title.replace(' ', '')}`}>
+    <div className={`task-column ${title.replace(/\s+/g, '')}`}>
       <h2>{title}</h2>
       {tasks.map(task => (
         <TaskItem
@@ -36,7 +36,7 @@ const TaskColumn: React.FC<TaskColumnProps> = memo(({
           updateSubTaskStatus={
             updateSubTaskStatus
               ? (subTaskId, newStatus) =>
-                  updateSubTaskStatus(task.id, subTaskId, newStatus as TaskStatus)
+                  updateSubTaskStatus(task.id, subTaskId, newStatus)
               : undefined
           }
           removeSubTask={

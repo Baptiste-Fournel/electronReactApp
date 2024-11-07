@@ -5,14 +5,24 @@ import { v4 as uuidv4 } from 'uuid';
 
 export class LocalTaskService implements ITaskService {
   private storageKey = 'tasks';
+  private archiveStorageKey = 'archivedTasks';
 
   async loadTasks(): Promise<Task[]> {
     const tasks = localStorage.getItem(this.storageKey);
     return tasks ? JSON.parse(tasks) : [];
   }
 
+  async loadArchivedTasks(): Promise<Task[]> {
+    const archivedTasks = localStorage.getItem(this.archiveStorageKey);
+    return archivedTasks ? JSON.parse(archivedTasks) : [];
+  }
+
   async saveTasks(tasks: Task[]): Promise<void> {
     localStorage.setItem(this.storageKey, JSON.stringify(tasks));
+  }
+
+  async saveArchivedTasks(tasks: Task[]): Promise<void> {
+    localStorage.setItem(this.archiveStorageKey, JSON.stringify(tasks));
   }
 
   addTask(tasks: Task[], taskName: string, type: TaskType, authorId: string): Task[] {
@@ -33,12 +43,18 @@ export class LocalTaskService implements ITaskService {
     const updatedTasks = tasks.map(task =>
       task.id === taskId ? { ...task, status: newStatus } : task
     );
-    this.saveTasks(updatedTasks); 
+    this.saveTasks(updatedTasks);
     return updatedTasks;
   }
 
   removeTask(tasks: Task[], taskId: string): Task[] {
+    const taskToRemove = tasks.find(task => task.id === taskId);
     const remainingTasks = tasks.filter(task => task.id !== taskId);
+
+    if (taskToRemove && taskToRemove.status === TaskStatus.Completed) {
+      this.archiveTask(taskToRemove);
+    }
+    
     this.saveTasks(remainingTasks);
     return remainingTasks;
   }
@@ -84,5 +100,11 @@ export class LocalTaskService implements ITaskService {
     });
     this.saveTasks(updatedTasks);
     return updatedTasks;
+  }
+
+  async archiveTask(task: Task): Promise<void> {
+    const archivedTasks = await this.loadArchivedTasks();
+    const updatedArchivedTasks = [...archivedTasks, task];
+    this.saveArchivedTasks(updatedArchivedTasks);
   }
 }
