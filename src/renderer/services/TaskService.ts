@@ -9,6 +9,8 @@ export class TaskService implements ITaskService {
       id: uuidv4(),
       name: taskName,
       status: TaskStatus.NotStarted,
+      type,
+      authorId,
     };
     return tasks.concat(newTask);
   }
