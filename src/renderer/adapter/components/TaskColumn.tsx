@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Task } from '../../models/Task';
 import TaskItem from './TaskItem';
 import '../../../style/TaskColumn.css';
@@ -14,17 +14,17 @@ interface TaskColumnProps {
   removeSubTask?: (taskId: string, subTaskId: string) => void;
 }
 
-function TaskColumn({
-  title,
-  tasks,
-  onAdvance,
-  onDelete,
-  addSubTask,
-  updateSubTaskStatus,
-  removeSubTask,
-}: TaskColumnProps) {
+const TaskColumn: React.FC<TaskColumnProps> = memo(({ 
+  title, 
+  tasks, 
+  onAdvance, 
+  onDelete, 
+  addSubTask, 
+  updateSubTaskStatus, 
+  removeSubTask 
+}) => {
   return (
-    <div className="task-column">
+    <div className={`task-column ${title.replace(' ', '')}`}>
       <h2>{title}</h2>
       {tasks.map(task => (
         <TaskItem
@@ -46,6 +46,6 @@ function TaskColumn({
       ))}
     </div>
   );
-}
+});
 
 export default TaskColumn;

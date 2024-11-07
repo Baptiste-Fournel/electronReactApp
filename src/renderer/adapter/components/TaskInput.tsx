@@ -16,6 +16,8 @@ function TaskInput({ addTask }: TaskInputProps) {
       addTask(taskName.trim(), type, authorId.trim());
       setTaskName('');
       setAuthorId('');
+    } else {
+      alert("Veuillez entrer un nom de tâche et un ID d'auteur valides.");
     }
   }
 
@@ -51,4 +53,3 @@ function TaskInput({ addTask }: TaskInputProps) {
 }
 
 export default TaskInput;
-

@@ -6,12 +6,12 @@ import { v4 as uuidv4 } from 'uuid';
 export class LocalTaskService implements ITaskService {
   private storageKey = 'tasks';
 
-  loadTasks(): Task[] {
+  async loadTasks(): Promise<Task[]> {
     const tasks = localStorage.getItem(this.storageKey);
     return tasks ? JSON.parse(tasks) : [];
   }
 
-  saveTasks(tasks: Task[]): void {
+  async saveTasks(tasks: Task[]): Promise<void> {
     localStorage.setItem(this.storageKey, JSON.stringify(tasks));
   }
 
@@ -33,7 +33,7 @@ export class LocalTaskService implements ITaskService {
     const updatedTasks = tasks.map(task =>
       task.id === taskId ? { ...task, status: newStatus } : task
     );
-    this.saveTasks(updatedTasks);
+    this.saveTasks(updatedTasks); 
     return updatedTasks;
   }
 

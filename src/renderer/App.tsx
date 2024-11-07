@@ -4,39 +4,48 @@ import TaskBoard from './adapter/components/TaskBoard';
 import { Task } from './models/Task';
 import { LocalTaskService } from './services/LocalTaskService';
 import { TaskStatus, TaskType } from '../constants/tasksEnum';
-import '../../style/App.css';
+import '../style/App.css';
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const taskService = new LocalTaskService();
 
   useEffect(() => {
-    const storedTasks = taskService.loadTasks();
-    setTasks(storedTasks);
+    const fetchTasks = async () => {
+      const storedTasks = await taskService.loadTasks();
+      setTasks(storedTasks);
+    };
+    fetchTasks();
   }, []);
 
-  function addTask(taskName: string, type: TaskType, authorId: string) {
-    setTasks(taskService.addTask(tasks, taskName, type, authorId));
+  async function addTask(taskName: string, type: TaskType, authorId: string) {
+    const updatedTasks = taskService.addTask(tasks, taskName, type, authorId);
+    setTasks(updatedTasks);
   }
 
-  function updateTaskStatus(taskId: string, newStatus: TaskStatus) {
-    setTasks(taskService.updateTaskStatus(tasks, taskId, newStatus));
+  async function updateTaskStatus(taskId: string, newStatus: TaskStatus) {
+    const updatedTasks = taskService.updateTaskStatus(tasks, taskId, newStatus);
+    setTasks(updatedTasks);
   }
 
-  function removeTask(taskId: string) {
-    setTasks(taskService.removeTask(tasks, taskId));
+  async function removeTask(taskId: string) {
+    const updatedTasks = taskService.removeTask(tasks, taskId);
+    setTasks(updatedTasks);
   }
 
-  function addSubTask(taskId: string, subTaskName: string) {
-    setTasks(taskService.addSubTask(tasks, taskId, subTaskName));
+  async function addSubTask(taskId: string, subTaskName: string) {
+    const updatedTasks = taskService.addSubTask(tasks, taskId, subTaskName);
+    setTasks(updatedTasks);
   }
 
-  function updateSubTaskStatus(taskId: string, subTaskId: string, newStatus: TaskStatus) {
-    setTasks(taskService.updateSubTaskStatus(tasks, taskId, subTaskId, newStatus));
+  async function updateSubTaskStatus(taskId: string, subTaskId: string, newStatus: TaskStatus) {
+    const updatedTasks = taskService.updateSubTaskStatus(tasks, taskId, subTaskId, newStatus);
+    setTasks(updatedTasks);
   }
 
-  function removeSubTask(taskId: string, subTaskId: string) {
-    setTasks(taskService.removeSubTask(tasks, taskId, subTaskId));
+  async function removeSubTask(taskId: string, subTaskId: string) {
+    const updatedTasks = taskService.removeSubTask(tasks, taskId, subTaskId);
+    setTasks(updatedTasks);
   }
 
   return (
@@ -56,4 +65,3 @@ function App() {
 }
 
 export default App;
-
