@@ -63,7 +63,6 @@ npm (v6 ou supérieur) <br>
  <br>
 💻 Utilisation <br>
 Ajouter une tâche <br>
- <br>
 Remplissez le nom de la tâche, sélectionnez une catégorie (Personnel, Travail, Famille) et entrez le nom de l'auteur. Cliquez sur "Ajouter". <br>
 Gérer les tâches <br>
  <br>
