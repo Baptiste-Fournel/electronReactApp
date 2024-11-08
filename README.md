@@ -30,7 +30,7 @@ renderer <br>
 ├── domain <br>
 │   ├── enums <br>
 │   │   ├── TaskEnum.ts <br>
-│   │   └── TaskTranslations <br>
+│   │   └── TaskTranslations.ts <br>
 │   ├── interface <br>
 │   │   ├── ITaskRepository.ts <br>
 │   │   └── IArchiveRepository.ts <br>
