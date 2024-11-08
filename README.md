@@ -69,7 +69,6 @@ Gérer les tâches <br>
 Déplacez les tâches entre les colonnes Non commencées, En cours, et Terminées en utilisant les icônes de flèche. <br>
 Supprimez une tâche ou une sous-tâche avec l'icône de corbeille. <br>
 Archiver les tâches <br>
- <br>
 Lorsque vous marquez une tâche comme "Terminée", vous pouvez l'archiver. <br>
 Cliquez sur "Voir les tâches terminées" pour consulter les tâches archivées. <br>
  <br>
