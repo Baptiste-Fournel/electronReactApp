@@ -27,6 +27,7 @@
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
 
 .advance-button {
@@ -35,6 +36,16 @@
 
 .advance-button:hover {
   color: #0056b3;
+  transform: scale(1.1);
+}
+
+.revert-button {
+  color: #ff9800;
+}
+
+.revert-button:hover {
+  color: #e67e22;
+  transform: scale(1.1);
 }
 
 .delete-button {
@@ -43,6 +54,7 @@
 
 .delete-button:hover {
   color: #c82333;
+  transform: scale(1.1);
 }
 
 .add-subtask {
@@ -58,4 +70,51 @@
   margin-top: 10px;
   font-size: 0.9em;
   box-sizing: border-box;
+}
+
+.subtasks {
+  margin-left: 0.5rem; 
+  padding-left: 0.5rem;
+  margin-top: 10px;
+  border-left: 2px solid #ddd;
+}
+
+.subtask-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #f0f0f5;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.subtask-item:hover {
+  background-color: #e6e6ea;
+  transform: translateX(-3px);
+}
+
+.subtask-name {
+  font-size: 0.9em;
+  color: #333;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.subtask-delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 5px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.subtask-delete-button:hover {
+  background-color: #c82333;
+  transform: scale(1.1);
 }
