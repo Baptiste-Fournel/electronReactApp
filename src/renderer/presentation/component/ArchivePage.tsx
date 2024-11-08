@@ -1,13 +1,14 @@
 import React from 'react';
-import { Task } from '../../models/Task';
-import '../../../style/ArchivePage.css';
+import { useTasks } from '../../application/context/TaskContext';
+import '../style/ArchivePage.css';
 
-interface ArchivePageProps {
-  archivedTasks: Task[];
-  removeArchivedTask: (taskId: string) => void;
-}
+const ArchivePage: React.FC = () => {
+  const { archivedTasks, removeArchivedTask } = useTasks();
 
-function ArchivePage({ archivedTasks, removeArchivedTask }: ArchivePageProps) {
+  const handleDelete = async (taskId: string) => {
+    await removeArchivedTask(taskId);
+  };
+
   return (
     <div className="archive-page">
       <h2>Tâches archivées</h2>
@@ -19,7 +20,7 @@ function ArchivePage({ archivedTasks, removeArchivedTask }: ArchivePageProps) {
             <div className="archived-task-header">
               <h3>{task.name}</h3>
               <button
-                onClick={() => removeArchivedTask(task.id)}
+                onClick={() => handleDelete(task.id)}
                 className="delete-archive-button"
                 title="Supprimer la tâche archivée"
               >
@@ -33,6 +34,6 @@ function ArchivePage({ archivedTasks, removeArchivedTask }: ArchivePageProps) {
       )}
     </div>
   );
-}
+};
 
 export default ArchivePage;

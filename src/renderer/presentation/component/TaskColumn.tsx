@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { Task } from '../../models/Task';
+import { Task } from '../../domain/models/Task';
 import TaskItem from './TaskItem';
-import '../../../style/TaskColumn.css';
-import { TaskStatus } from '../../../constants/tasksEnum';
+import '../style/TaskColumn.css';
+import { TaskStatus } from '../../domain/enums/tasksEnum';
 
 interface TaskColumnProps {
   title: string;

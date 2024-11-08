@@ -1,0 +1,61 @@
+.task-item {
+  padding: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.task-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.task-item button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.advance-button {
+  color: #007bff;
+}
+
+.advance-button:hover {
+  color: #0056b3;
+}
+
+.delete-button {
+  color: #dc3545;
+}
+
+.delete-button:hover {
+  color: #c82333;
+}
+
+.add-subtask {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.subtask-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 0.9em;
+  box-sizing: border-box;
+}

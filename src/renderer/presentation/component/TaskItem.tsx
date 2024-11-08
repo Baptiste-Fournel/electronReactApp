@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Task } from '../../models/Task';
-import { TaskStatus, TaskType } from '../../../constants/tasksEnum';
-import '../../../style/TaskItem.css';
-import { taskTypeTranslations } from '../../../constants/tasksTranslations';
+import { Task } from '../../domain/models/Task';
+import { TaskStatus, TaskType } from '../../domain/enums/tasksEnum';
+import '../style/TaskItem.css';
+import { taskTypeTranslations } from '../../domain/enums/tasksTranslations';
 
 interface TaskItemProps {
   task: Task;

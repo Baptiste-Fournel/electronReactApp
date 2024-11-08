@@ -1,4 +1,4 @@
-import { TaskStatus, TaskType } from '../../constants/tasksEnum';
+import { TaskStatus, TaskType } from '../enums/tasksEnum';
 
 
 export interface Task {
