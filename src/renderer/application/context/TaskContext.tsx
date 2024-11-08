@@ -98,7 +98,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
 export const useTasks = () => {
   const context = useContext(TaskContext);
   if (!context) {
-    throw new Error('useTasks must be used within a TaskProvider');
+    throw new Error('useTasks doit être utilisé à l intérieur d un TaskProvider');
   }
   return context;
 };

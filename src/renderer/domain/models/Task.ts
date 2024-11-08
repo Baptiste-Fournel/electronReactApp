@@ -10,9 +10,9 @@ export interface Task {
     authorId?: string;
   }
 
-  export interface SubTask {
+export interface SubTask {
     id: string;
     name: string;
     status: TaskStatus;
-  }
+}
   
