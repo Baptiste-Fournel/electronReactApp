@@ -1,13 +1,14 @@
 import React from 'react';
-import { Task } from '../../models/Task';
 import TaskColumn from './TaskColumn';
-import { TaskStatus } from '../../../constants/tasksEnum';
-import '../../../style/TaskBoard.css';
+import '../style/TaskBoard.css';
+import { TaskStatus } from '../../domain/enums/tasksEnum';
+import { Task } from '../../domain/models/Task';
 
 interface TaskBoardProps {
   tasks: Task[];
-  updateTaskStatus: (taskId: string, newStatus: TaskStatus) => void;
-  removeTask: (taskId: string) => void;
+  updateTaskStatus: (taskId: string, newStatus: TaskStatus) => Promise<void>;
+  removeTask: (taskId: string) => Promise<void>;
+  archiveTask: (taskId: string) => Promise<void>;
   addSubTask: (taskId: string, subTaskName: string) => void;
   updateSubTaskStatus: (taskId: string, subTaskId: string, newStatus: TaskStatus) => void;
   removeSubTask: (taskId: string, subTaskId: string) => void;
@@ -17,6 +18,7 @@ function TaskBoard({
   tasks,
   updateTaskStatus,
   removeTask,
+  archiveTask,
   addSubTask,
   updateSubTaskStatus,
   removeSubTask,
@@ -47,7 +49,7 @@ function TaskBoard({
         title="Terminées"
         tasks={tasks.filter(task => task.status === TaskStatus.Completed)}
         onAdvance={undefined}
-        onDelete={removeTask}
+        onDelete={(id) => archiveTask(id)} 
         addSubTask={undefined}
         updateSubTaskStatus={updateSubTaskStatus}
         removeSubTask={removeSubTask}

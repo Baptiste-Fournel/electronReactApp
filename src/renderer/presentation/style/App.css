@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.view-archive-button {
+  display: block;
+  width: 220px;
+  padding: 12px;
+  margin: 30px auto;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+.view-archive-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+.view-archive-button:active {
+  transform: translateY(0);
+}

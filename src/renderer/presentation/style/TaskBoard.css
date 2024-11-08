@@ -1,6 +1,6 @@
-/* TaskBoard.css */
 .task-board {
   display: flex;
   justify-content: space-around;
   margin: 2rem 0;
+  gap: 1.5rem;
 }
