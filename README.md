@@ -19,41 +19,41 @@ Clean Architecture : Architecture en couches pour un code modulaire et maintenab
 Context API : Gestion d'état pour partager des données entre les composants.
 
 
-📂 Structure du projet
-renderer
-├── application
-│   ├── context
-│   │   └── TaskContext.tsx
-│   ├── service
-│   │   ├── TaskService.ts
-│   │   └── ArchiveService.ts
-├── domain
-│   ├── enums
-│   │   ├── TaskEnum.ts
-│   │   └── TaskTranslations
-│   ├── interface
-│   │   ├── ITaskRepository.ts
-│   │   └── IArchiveRepository.ts
-│   └── models
-│       └── Task.ts
-├── infrastructure
-│   └── storage
-│       └── LocalTaskRepository.ts
-├── adapter
-│   ├── components
-│   │   ├── App.tsx
-│   │   ├── TaskBoard.tsx
-│   │   ├── TaskColumn.tsx
-│   │   ├── TaskItem.tsx
-│   │   ├── TaskInput.tsx
-│   │   └── ArchivePage.tsx
-├── style
-│   ├── App.css
-│   ├── TaskBoard.css
-│   ├── TaskColumn.css
-│   ├── TaskItem.css
-│   ├── TaskInput.css
-│   └── ArchivePage.css
+📂 Structure du projet <br>
+renderer <br>
+├── application <br>
+│   ├── context <br>
+│   │   └── TaskContext.tsx <br>
+│   ├── service <br>
+│   │   ├── TaskService.ts <br>
+│   │   └── ArchiveService.ts <br>
+├── domain <br>
+│   ├── enums <br>
+│   │   ├── TaskEnum.ts <br>
+│   │   └── TaskTranslations <br>
+│   ├── interface <br>
+│   │   ├── ITaskRepository.ts <br>
+│   │   └── IArchiveRepository.ts <br>
+│   └── models <br>
+│       └── Task.ts <br>
+├── infrastructure <br>
+│   └── storage <br>
+│       └── LocalTaskRepository.ts <br>
+├── adapter <br>
+│   ├── components <br>
+│   │   ├── App.tsx <br>
+│   │   ├── TaskBoard.tsx <br>
+│   │   ├── TaskColumn.tsx <br>
+│   │   ├── TaskItem.tsx <br>
+│   │   ├── TaskInput.tsx <br>
+│   │   └── ArchivePage.tsx <br>
+├── style <br>
+│   ├── App.css <br>
+│   ├── TaskBoard.css <br>
+│   ├── TaskColumn.css <br>
+│   ├── TaskItem.css <br>
+│   ├── TaskInput.css <br>
+│   └── ArchivePage.css <br>
 
 
 🚀 Installation et exécution
