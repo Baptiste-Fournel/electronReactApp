@@ -17,8 +17,6 @@ Interface utilisateur interactive et moderne.<br>
 React : Frontend dynamique et interactif.<br>
 Electron : Application de bureau multiplateforme.<br>
 TypeScript : Typage statique pour un code plus robuste.<br>
-Clean Architecture : Architecture en couches pour un code modulaire et maintenable.<br>
-Context API : Gestion d'état pour partager des données entre les composants.<br>
 
 
 📂 Structure du projet <br>
